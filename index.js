@@ -7,7 +7,7 @@ var apiai = require('apiai');
 var app = apiai("4690260581ca44bd8bda5509770c01d1");
 
 //var userId = '57c01238296ad1b878399283'
-var userId = 57c002f7741f998795f31c95
+var userId = '57c002f7741f998795f31c95'
 var botname = 'smartbot'
 if (process.env.REDIS_URL) {
   var redisSub = redis.createClient(process.env.REDIS_URL)
