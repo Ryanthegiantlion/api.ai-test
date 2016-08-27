@@ -40,62 +40,62 @@ function onMessage(channel, data) {
 	console.log('got message')
 	console.log(textMessage)
 
-	var request = app.textRequest(textMessage);
+	// var request = app.textRequest(textMessage);
 
-	request.on('response', function(response) {
-		var result = response.result;
-		var pizzas = undefined;
-		var pizzas = result.parameters.pizza + ' ' + result.parameters.pizza1;
-		var toppings = result.parameters.topping + ' ' + result.parameters.topping1;
-		var base = result.parameters.base;
-		var cooldrink = result.parameters.cooldrink;
-		var intent = result.metadata.intentName;
-		var fullfillment = result.fulfillment.speech;
+	// request.on('response', function(response) {
+	// 	var result = response.result;
+	// 	var pizzas = undefined;
+	// 	var pizzas = result.parameters.pizza + ' ' + result.parameters.pizza1;
+	// 	var toppings = result.parameters.topping + ' ' + result.parameters.topping1;
+	// 	var base = result.parameters.base;
+	// 	var cooldrink = result.parameters.cooldrink;
+	// 	var intent = result.metadata.intentName;
+	// 	var fullfillment = result.fulfillment.speech;
 
-		var response = 'no idea';
-		if (fullfillment) {
-			response = fullfillment;	
-		} else {
-			if (intent) {
-				response = 'api method: ' + intent + '\n';
-			}
+	// 	var response = 'no idea';
+	// 	if (fullfillment) {
+	// 		response = fullfillment;	
+	// 	} else {
+	// 		if (intent) {
+	// 			response = 'api method: ' + intent + '\n';
+	// 		}
 
-			if (pizzas) {
-				response = response + 'pizzas: ' + pizzas + '\n';
-			}
+	// 		if (pizzas) {
+	// 			response = response + 'pizzas: ' + pizzas + '\n';
+	// 		}
 
-			if (toppings) {
-				reponse = response + 'toppingss: ' + toppings + '\n';
-			}
+	// 		if (toppings) {
+	// 			reponse = response + 'toppingss: ' + toppings + '\n';
+	// 		}
 
-			if (base) {
-				reponse = response + 'base: ' + base + '\n';
-			}
+	// 		if (base) {
+	// 			reponse = response + 'base: ' + base + '\n';
+	// 		}
 
-			if (cooldrink) {
-				reponse = response + 'cooldrink: ' + cooldrink + '\n';
-			}
-		}
-	    console.log(response);
+	// 		if (cooldrink) {
+	// 			reponse = response + 'cooldrink: ' + cooldrink + '\n';
+	// 		}
+	// 	}
+	//     console.log(response);
 
-	  console.log('here')
-	  console.log(messageId)
-	  console.log(allMessages)
+	//   console.log('here')
+	//   console.log(messageId)
+	//   console.log(allMessages)
 
 
-	  var newMessage = newPubSubDirectMessage(allMessages[messageId], response)
+	//   var newMessage = newPubSubDirectMessage(allMessages[messageId], response)
 	
-		console.log(RedisChannels.SmartBotReply)
-		console.log(JSON.stringify(newMessage));
+	// 	console.log(RedisChannels.SmartBotReply)
+	// 	console.log(JSON.stringify(newMessage));
 
-	  redisPub.publish(RedisChannels.SmartBotReply, JSON.stringify(newMessage))
-	});
+	//   redisPub.publish(RedisChannels.SmartBotReply, JSON.stringify(newMessage))
+	// });
 
-	request.on('error', function(error) {
-	    console.log(error);
-	});
+	// request.on('error', function(error) {
+	//     console.log(error);
+	// });
 
-	request.end()
+	// request.end()
 }
 
 function newPubSubDirectMessage(received_message, response) {
