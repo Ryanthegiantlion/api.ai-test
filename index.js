@@ -65,6 +65,7 @@ function onMessage(channel, data) {
 				response = response + 'pizzas: ' + pizzas + '\n';
 			}
 
+			console.log(toppings);
 			if (toppings) {
 				reponse = response + 'toppingss: ' + toppings + '\n';
 			}
