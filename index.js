@@ -65,17 +65,16 @@ function onMessage(channel, data) {
 				response = response + 'pizzas: ' + pizzas + '\n';
 			}
 
-			console.log(toppings);
 			if (toppings) {
-				reponse = response + 'toppingss: ' + toppings + '\n';
+				response = response + 'toppingss: ' + toppings + '\n';
 			}
 
 			if (base) {
-				reponse = response + 'base: ' + base + '\n';
+				response = response + 'base: ' + base + '\n';
 			}
 
 			if (cooldrink) {
-				reponse = response + 'cooldrink: ' + cooldrink + '\n';
+				response = response + 'cooldrink: ' + cooldrink + '\n';
 			}
 		}
 	    console.log(response);
