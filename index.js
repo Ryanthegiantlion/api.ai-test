@@ -44,6 +44,7 @@ function onMessage(channel, data) {
 
 	request.on('response', function(response) {
 		var result = response.result;
+		console.log(result.parameters)
 		var pizzas = undefined;
 		var pizzas = result.parameters.pizza + ' ' + result.parameters.pizza1;
 		var toppings = result.parameters.topping + ' ' + result.parameters.topping1;
